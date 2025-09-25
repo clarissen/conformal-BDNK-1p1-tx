@@ -17,8 +17,10 @@ set up a directory in which you would like to run this simulation, then from Ter
 python<version> main.py
 
 # What does this code do?
-- Running the main.py will complete the simulation specified in config.py. This will create a unique directory under the /sims/ folder for that simulation that contains the following data generated from these files: 
-    i. The post.py module will  output all the dynamical variables contained within q, f, s, including elements of the energy-momentum tensor, the temperature-flow product vector and its gradients, energy density, velocity and their gradients, and lorentz factor. This is saved under the /vars/ directory within the unique simulation folder. 
+- Running the main.py will complete the simulation specified in config.py. This will create a unique directory under the /sims/ folder for that simulation that contains the following data generated from these files:
+
+    i. The post.py module will  output all the dynamical variables contained within q, f, s, including elements of the energy-momentum tensor, the temperature-flow product vector and its gradients, energy density, velocity and their gradients, and lorentz factor. This is saved under the /vars/ directory within the unique simulation folder.
+   
     ii. These variables will be subsequently animated using animator.py and both a .gif and .pdf file of the evolution at predetermined, but adjustable intervals will be saved under /anims/ under the unique sim folder.
 
 
