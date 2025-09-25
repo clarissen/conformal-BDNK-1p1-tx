@@ -1,7 +1,7 @@
 import sys
 # problem type      0           1           2           3               4               5             6
 problem_list = ["gaussian", "ep-shock", "v-shock", "v-gaussian", "ep-shocktube", "ep-v-gaussian", "ep-v-fd"]
-problem = problem_list[5]
+problem = problem_list[0]
 
 # scheme
 scheme_list =  ["kt-minmod-tvdrk2", "kt-superbee-tvdrk2", "kt-vanleer-tvdrk2", "kt-mc-tvdrk2"]
@@ -12,13 +12,13 @@ scheme = scheme_list[0]
 x0 = True # include x = 0 in grid?
 cCFL = 0.5 # courant factor <=0.5
 
-hx = 0.0125 # step sizes (0.2,0.1,0.05,0.025,0.0125,0.0125/2,0.0125/4,0.0125/8)
+hx = 0.05 # step sizes (0.2,0.1,0.05,0.025,0.0125,0.0125/2,0.0125/4,0.0125/8)
 ht = 0.5*hx # for now make this a fixed (SMALL) number independent of hx so that time steps line up in convergence test
 if ht > cCFL*hx:
     print("CFL Condition not met. Exiting program.")
     sys.exit()
 
-N = 50  # length of grid
+N = 75  # length of grid
 iterations = N/(ht) 
 # tmod = 200 # int(1/ht)
 tmod = int(1/ht)
@@ -30,13 +30,13 @@ Neta = 1 # multiple of 1/4pi for eta/s
 
 # conformal alpha in ep = alpha * T^4
 # ep_coeff = 5.26379 # - Teaney
-# ep_coeff = 10 # - Princeton
-ep_coeff = 15.6268736 # - Vicente
+ep_coeff = 10 # - Princeton
+# ep_coeff = 15.6268736 # - Vicente
 
 # hydro frames
 # ==========================
 choose_cplus_a1 = False
-frame = 1
+frame = 2
     # PAPER FRAMES
     # =============
     # Teaney/Princeton frames
