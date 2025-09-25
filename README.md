@@ -34,12 +34,5 @@ The main workhorse of this simulation is organized in the following way:
 7. data_manager.py - this loads, saves, and checks simulation data/specification. All data is saved as .npy files. Dictionaries are saved as .json. Energy-momentum conservation and simulation configuration are saved as .txt files. Each simulation must be given a name and this will be saved in the sims directory. This will eventually contain all simulation data, the variables calcualted from post.py and the animations from animator.py.
 8. main.py - run this to simulate the fluid.
 
-# Post-processing features.
-
-- convergence.py
-  - performs a global convergence test on the conserved variables T00, T0x. Test performed according to Alcubierre's numerical test using 3 simulations with resolution ratio r = 2 and the vector 1-norm. Must manually input the simulations for comparisons in the data frame and call them accordingly. 
-- hydro_frames.py
-  - performs a comparison test by animation and vector 1-norm differencing between T00, T0x, Txx across three hydro frames. Must manually input the simulations for comparisons in the data frame and call them accordingly. 
-
 # What you can change:
-The only place where the user must interfact with the simulation is in config.py, here you can change the simulation metadata, the physical parameters, and the problem types. 
+The only place where the user *must* interface with the simulation is in config.py, here you can change the simulation metadata, the physical parameters, and the problem types.
