@@ -1,7 +1,7 @@
 import sys
 # problem type      0           1           2           3               4               5             6
 problem_list = ["gaussian", "ep-shock", "v-shock", "v-gaussian", "ep-shocktube", "ep-v-gaussian", "ep-v-fd"]
-problem = problem_list[0]
+problem = problem_list[1]
 
 # scheme
 scheme_list =  ["kt-minmod-tvdrk2", "kt-superbee-tvdrk2", "kt-vanleer-tvdrk2", "kt-mc-tvdrk2"]
@@ -12,7 +12,7 @@ scheme = scheme_list[0]
 x0 = True # include x = 0 in grid?
 cCFL = 0.5 # courant factor <=0.5
 
-hx = 0.05 # step sizes (0.2,0.1,0.05,0.025,0.0125,0.0125/2,0.0125/4,0.0125/8)
+hx = 0.0125 # step sizes (0.2,0.1,0.05,0.025,0.0125,0.0125/2,0.0125/4,0.0125/8)
 ht = 0.5*hx # for now make this a fixed (SMALL) number independent of hx so that time steps line up in convergence test
 if ht > cCFL*hx:
     print("CFL Condition not met. Exiting program.")
@@ -20,13 +20,12 @@ if ht > cCFL*hx:
 
 N = 75  # length of grid
 iterations = N/(ht) 
-# tmod = 200 # int(1/ht)
 tmod = int(1/ht)
 # ==========================
 
 # viscosity
 # let's test {1,3,6}
-Neta = 1 # multiple of 1/4pi for eta/s
+Neta = 3 # multiple of 1/4pi for eta/s
 
 # conformal alpha in ep = alpha * T^4
 # ep_coeff = 5.26379 # - Teaney
@@ -36,62 +35,61 @@ ep_coeff = 10 # - Princeton
 # hydro frames
 # ==========================
 choose_cplus_a1 = False
-frame = 2
-    # PAPER FRAMES
-    # =============
-    # Teaney/Princeton frames
-    # c_+ = 0.85, a1 = 25/2 = 12.5, a2 = 25/3 ~ 8.3 -> A
-    # c_+ = 0.99, a1 = 25/4 = 6.25 , a2 = 25/7 ~ 3.6 -> B
-    # OURS
-    # c_+ = 0.99, a1 = 5, a2 = 3.97 -> C?
+frame = 3 # 0,1,2,3
 
 if choose_cplus_a1 == True: 
 
-    if frame == 1: # B - Princeton
-        cplus = 0.9999
+    if frame == 0: # B - Princeton
+        cplus = 0.999
         a1 = 25/4 
-        # a2 =~ 25/7
-    
-    if frame == 2: # A - Princeton
-        cplus = 0.85
-        a1 = 25/2
-        # a2 = 25/3
+        # a2 = 25/7
 
-    if frame == 3: # pick something
-        cplus = 0.74
+    if frame == 1: # A - Princeton
+        cplus = 0.86
+        a1 = 25/4 
+        # a2 = 75/7
+    
+    if frame == 2: 
+        cplus = 0.77
+        a1 = 25/2
+        # a2 = 25
+
+    if frame == 3:
+        cplus = 0.70
         a1 = 25
-        # a2 =~ 25
+        # a2 = 75
+
+    if frame == 4: # A - Princeton
+        cplus = 0.85
+        a1 = 25/2 
+        # a2 = 25/3
 
 else:
 
-    if frame == 1: # B - Princeton
-        # cplus = 1.0
+    if frame == 0: # B - Princeton
+        # cplus = 0.99
         a1 = 25/4 
         a2 = 25/7
-    
-    if frame == 2: # A - Princeton
-        # cplus = 0.85
-        a1 = 25/2
-        a2 = 25/3
 
-    if frame == 3: # pick something
-        # cplus = 0.74
-        a1 = 25
+    if frame == 1: 
+        # cplus = 0.86
+        a1 = 25/4 
+        a2 = 75/7
+    
+    if frame == 2: 
+        # cplus = 0.77
+        a1 = 25/2
         a2 = 25
 
-    # if frame == 4:
-    #     a1 = 5
-    #     a2 = 5
-    # if frame == 5:
-    #     a1 = 10
-    #     a2 = 5
-    # if frame == 6:
-    #     a1 = 20
-    #     a2 = 5
+    if frame == 3:
+        # cplus = 0.70
+        a1 = 25
+        a2 = 75
 
-    # if frame == 5: # small c_+
-    #     a1 = 100
-    #     a2 = 100
+    if frame == 4: # A - Princeton
+        # cplus = 0.85
+        a1 = 25/2 
+        a2 = 25/3
 
 
  
@@ -104,7 +102,7 @@ theta_kt = 1.0
 # ==========================
 # alarms on or off?
 alarms = False
-# automatically pass checks and prints and generate file names for sucomp cluster/speed
+# automatically pass INITIAL checks and prints and generate file names for automatic runs (sucomputer cluster)
 sucomp = True
 # animation bounds?
 anim_bounds = True

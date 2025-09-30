@@ -162,7 +162,7 @@ def get_tau_ep(temp, a1, etaovers): # OK
 
 @njit
 def get_tau_Q(temp, a2, etaovers): # OK
-    return 3.0 * a2 * etaovers / temp
+    return a2 * etaovers / temp # removed factor 3
 
 @njit
 def get_shearscalar(temp, shear_coeff): # OK
