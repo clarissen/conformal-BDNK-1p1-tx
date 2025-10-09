@@ -111,11 +111,6 @@ Neta = config.Neta
 ep_coeff = config.ep_coeff
 #--------------------
 
-# hydro frame choice
-#--------------------
-choose_cplus_a1 = config.choose_cplus_a1
-#--------------------
-
 # Kurganov-Tadmor - minmod_limiter
 #--------------------
 theta_kt = config.theta_kt
@@ -195,16 +190,11 @@ spacetime = "cartesian"
 bulk_scalar = 0.0 # conformal
 etaovers = Neta * 1/(4 * np.pi)# eta / s, a measure of viscosity
 # 15.6 for a gas of massless quarks and gluons
-# shear_coeff =  etaovers * ep_coeff * 4/3 # WRONG
-shear_coeff =  4/3 * (ep_coeff)**(1/2)* etaovers
+shear_coeff =  (4/3) * ep_coeff *  etaovers 
+# shear_coeff =  4/3 * (ep_coeff)**(1/2)* etaovers # WRONG
 
 # HYDRO FRAMES
-if choose_cplus_a1 == True:
-    a1, a2, cplus = hydro_frame_constant_cplus(config.cplus, config.a1) 
-
-else:
-    a1, a2, cplus = hydro_frame(config.a1,config.a2)
-    # c_+ = max local prop speed <=1 and will be USED in kurganovtadmor.py
+a1, a2, cplus = hydro_frame(config.a1,config.a2)
 
 frame = config.frame
 #--------------------

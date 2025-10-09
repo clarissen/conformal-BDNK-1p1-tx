@@ -117,7 +117,7 @@ def plot_convergence(sim_name, problem, t_array, hx_list, ht_list, Q_list, var_n
     plt.xlabel(r"$t$ (1/GeV)")
     plt.ylabel(r"Q(t)")
 
-    plt.ylim(0, 2)
+    plt.ylim(1.5, 2.25)
 
     plt.legend(loc = 'lower left')
 
@@ -286,6 +286,20 @@ data = {
 
     # PRINCETON ICs
     # eta/s = 1/4pi
+
+    # less fine
+    # d = 0.1
+    'gaussian, frame 1, eta/s=1/4pi, ep=(A=0.4,d=0.1), hx = 0.05, 0.05/2, 0.05/4, ht = 0.5*hx, minmod3': ["bdnk_gaussian_(epL,epR)=(0.4,0.1)_(vL,vR)=(0.0,0.0)_a1=6.25_a2=3.57_etaovs=0.08_Delta=5.0_hx=0.05_ht=0.025_Ncells=3001_grid=[-75.0,75.0]_c+=1.0_kt-minmod-tvdrk2",
+                                                                                                          "bdnk_gaussian_(epL,epR)=(0.4,0.1)_(vL,vR)=(0.0,0.0)_a1=6.25_a2=3.57_etaovs=0.08_Delta=5.0_hx=0.025_ht=0.013_Ncells=6001_grid=[-75.0,75.0]_c+=1.0_kt-minmod-tvdrk2",
+                                                                                                          "bdnk_gaussian_(epL,epR)=(0.4,0.1)_(vL,vR)=(0.0,0.0)_a1=6.25_a2=3.57_etaovs=0.08_Delta=5.0_hx=0.0125_ht=0.006_Ncells=12001_grid=[-75.0,75.0]_c+=1.0_kt-minmod-tvdrk2"
+                                                                                                          ],
+
+
+    'gaussian, frame 1, eta/s=1/4pi, ep=(A=0.4,d=0.1), hx = 0.05/2, 0.05/4, 0.05/8, ht = 0.5*hx, minmod3': ["bdnk_gaussian_(epL,epR)=(0.4,0.1)_(vL,vR)=(0.0,0.0)_a1=6.25_a2=3.57_etaovs=0.08_Delta=5.0_hx=0.025_ht=0.013_Ncells=6001_grid=[-75.0,75.0]_c+=1.0_kt-minmod-tvdrk2",
+                                                                                                          "bdnk_gaussian_(epL,epR)=(0.4,0.1)_(vL,vR)=(0.0,0.0)_a1=6.25_a2=3.57_etaovs=0.08_Delta=5.0_hx=0.0125_ht=0.006_Ncells=12001_grid=[-75.0,75.0]_c+=1.0_kt-minmod-tvdrk2",
+                                                                                                          "bdnk_gaussian_(epL,epR)=(0.4,0.1)_(vL,vR)=(0.0,0.0)_a1=6.25_a2=3.57_etaovs=0.08_Delta=5.0_hx=0.00625_ht=0.003_Ncells=24001_grid=[-75.0,75.0]_c+=1.0_kt-minmod-tvdrk2"
+                                                                                                          ],
+
     # d= 0.1
     'gaussian, frame 1, eta/s=1/4pi, ep=(A=0.4,d=0.1), hx = 0.05/4,0.05/8,0.05/16, ht = 0.5*hx, minmod3': ["bdnk_gaussian_(epL,epR)=(0.4,0.1)_(vL,vR)=(0.0,0.0)_a1=6.25_a2=3.57_etaovs=0.08_Delta=5.0_hx=0.0125_ht=0.006_Ncells=12001_grid=[-75.0,75.0]_c+=1.0_kt-minmod-tvdrk2",
                                                                                                            "bdnk_gaussian_(epL,epR)=(0.4,0.1)_(vL,vR)=(0.0,0.0)_a1=6.25_a2=3.57_etaovs=0.08_Delta=5.0_hx=0.00625_ht=0.003_Ncells=24001_grid=[-75.0,75.0]_c+=1.0_kt-minmod-tvdrk2",
@@ -295,6 +309,11 @@ data = {
     'gaussian, frame 2, eta/s=1/4pi, ep=(A=0.4,d=0.1), hx = 0.05/4,0.05/8,0.05/16, ht = 0.5*hx, minmod3': ["bdnk_gaussian_(epL,epR)=(0.4,0.1)_(vL,vR)=(0.0,0.0)_a1=12.5_a2=8.33_etaovs=0.08_Delta=5.0_hx=0.0125_ht=0.006_Ncells=12001_grid=[-75.0,75.0]_c+=0.85_kt-minmod-tvdrk2",
                                                                                                            "bdnk_gaussian_(epL,epR)=(0.4,0.1)_(vL,vR)=(0.0,0.0)_a1=12.5_a2=8.33_etaovs=0.08_Delta=5.0_hx=0.00625_ht=0.003_Ncells=24001_grid=[-75.0,75.0]_c+=0.85_kt-minmod-tvdrk2",
                                                                                                            "bdnk_gaussian_(epL,epR)=(0.4,0.1)_(vL,vR)=(0.0,0.0)_a1=12.5_a2=8.33_etaovs=0.08_Delta=5.0_hx=0.003125_ht=0.002_Ncells=48001_grid=[-75.0,75.0]_c+=0.85_kt-minmod-tvdrk2"
+                                                                                                           ],
+    # d = 32*0.1
+    'gaussian, frame 2, eta/s=1/4pi, ep=(A=0.4,d=32*0.1), hx = 0.05/4,0.05/8,0.05/16, ht = 0.5*hx, minmod3': ["bdnk_gaussian_(epL,epR)=(0.4,3.2)_(vL,vR)=(0.0,0.0)_a1=12.5_a2=8.33_etaovs=0.08_Delta=5.0_hx=0.0125_ht=0.006_Ncells=12001_grid=[-75.0,75.0]_c+=0.85_kt-minmod-tvdrk2",
+                                                                                                           "bdnk_gaussian_(epL,epR)=(0.4,3.2)_(vL,vR)=(0.0,0.0)_a1=12.5_a2=8.33_etaovs=0.08_Delta=5.0_hx=0.00625_ht=0.003_Ncells=24001_grid=[-75.0,75.0]_c+=0.85_kt-minmod-tvdrk2",
+                                                                                                           "bdnk_gaussian_(epL,epR)=(0.4,3.2)_(vL,vR)=(0.0,0.0)_a1=12.5_a2=8.33_etaovs=0.08_Delta=5.0_hx=0.003125_ht=0.002_Ncells=48001_grid=[-75.0,75.0]_c+=0.85_kt-minmod-tvdrk2"
                                                                                                            ],
 
     'gaussian, frame 3, eta/s=1/4pi, ep=(A=0.4,d=0.1), hx = 0.05/4,0.05/8,0.05/16, ht = 0.5*hx, minmod3': ["bdnk_gaussian_(epL,epR)=(0.4,0.1)_(vL,vR)=(0.0,0.0)_a1=25_a2=25_etaovs=0.08_Delta=5.0_hx=0.0125_ht=0.006_Ncells=12001_grid=[-75.0,75.0]_c+=0.74_kt-minmod-tvdrk2",
@@ -315,7 +334,12 @@ data = {
     'gaussian, frame 2, eta/s=3/4pi, ep=(A=0.4,d=4*0.1), hx = 0.05/4,0.05/8,0.05/16, ht = 0.5*hx, minmod3': ["bdnk_gaussian_(epL,epR)=(0.4,0.4)_(vL,vR)=(0.0,0.0)_a1=12.5_a2=8.33_etaovs=0.239_Delta=5.0_hx=0.0125_ht=0.006_Ncells=12001_grid=[-75.0,75.0]_c+=0.85_kt-minmod-tvdrk2",
                                                                                                              "bdnk_gaussian_(epL,epR)=(0.4,0.4)_(vL,vR)=(0.0,0.0)_a1=12.5_a2=8.33_etaovs=0.239_Delta=5.0_hx=0.00625_ht=0.003_Ncells=24001_grid=[-75.0,75.0]_c+=0.85_kt-minmod-tvdrk2",
                                                                                                              "bdnk_gaussian_(epL,epR)=(0.4,0.4)_(vL,vR)=(0.0,0.0)_a1=12.5_a2=8.33_etaovs=0.239_Delta=5.0_hx=0.003125_ht=0.002_Ncells=48001_grid=[-75.0,75.0]_c+=0.85_kt-minmod-tvdrk2"
-                                                                                                             ],                                                                                        
+                                                                                                             ], 
+    # d=32*0.1                                                                                                         
+    'gaussian, frame 2, eta/s=3/4pi, ep=(A=0.4,d=32*0.1), hx = 0.05/4,0.05/8,0.05/16, ht = 0.5*hx, minmod3': ["bdnk_gaussian_(epL,epR)=(0.4,3.2)_(vL,vR)=(0.0,0.0)_a1=12.5_a2=8.33_etaovs=0.239_Delta=5.0_hx=0.0125_ht=0.006_Ncells=12001_grid=[-75.0,75.0]_c+=0.85_kt-minmod-tvdrk2",
+                                                                                                             "bdnk_gaussian_(epL,epR)=(0.4,3.2)_(vL,vR)=(0.0,0.0)_a1=12.5_a2=8.33_etaovs=0.239_Delta=5.0_hx=0.00625_ht=0.003_Ncells=24001_grid=[-75.0,75.0]_c+=0.85_kt-minmod-tvdrk2",
+                                                                                                             "bdnk_gaussian_(epL,epR)=(0.4,3.2)_(vL,vR)=(0.0,0.0)_a1=12.5_a2=8.33_etaovs=0.239_Delta=5.0_hx=0.003125_ht=0.002_Ncells=48001_grid=[-75.0,75.0]_c+=0.85_kt-minmod-tvdrk2"
+                                                                                                             ],                                                                                                                                                                                                    
 
     # eta/s = 20/4pi
     # d= 0.1
@@ -323,7 +347,34 @@ data = {
                                                                                                             "bdnk_gaussian_(epL,epR)=(0.4,0.1)_(vL,vR)=(0.0,0.0)_a1=12.5_a2=8.33_etaovs=1.592_Delta=5.0_hx=0.00625_ht=0.003_Ncells=24001_grid=[-75.0,75.0]_c+=0.85_kt-minmod-tvdrk2",
                                                                                                             "bdnk_gaussian_(epL,epR)=(0.4,0.1)_(vL,vR)=(0.0,0.0)_a1=12.5_a2=8.33_etaovs=1.592_Delta=5.0_hx=0.003125_ht=0.002_Ncells=48001_grid=[-75.0,75.0]_c+=0.85_kt-minmod-tvdrk2"
                                                                                                             ],
-    
+    # coarse
+    # d= 0.1
+    'gaussian, frame 2, eta/s=20/4pi, ep=(A=0.4,d=0.1), hx = 0.2,0.1,0.05, ht = 0.5*hx, minmod3': ["bdnk_gaussian_(epL,epR)=(0.4,0.1)_(vL,vR)=(0.0,0.0)_a1=12.5_a2=8.33_etaovs=1.592_Delta=5.0_hx=0.2_ht=0.1_Ncells=751_grid=[-75.0,75.0]_c+=0.85_kt-minmod-tvdrk2",
+                                                                                                   "bdnk_gaussian_(epL,epR)=(0.4,0.1)_(vL,vR)=(0.0,0.0)_a1=12.5_a2=8.33_etaovs=1.592_Delta=5.0_hx=0.1_ht=0.05_Ncells=1501_grid=[-75.0,75.0]_c+=0.85_kt-minmod-tvdrk2",
+                                                                                                   "bdnk_gaussian_(epL,epR)=(0.4,0.1)_(vL,vR)=(0.0,0.0)_a1=12.5_a2=8.33_etaovs=1.592_Delta=5.0_hx=0.05_ht=0.025_Ncells=3001_grid=[-75.0,75.0]_c+=0.85_kt-minmod-tvdrk2"
+                                                                                                   ],
+
+    # coarse
+    # d= 32 * 0.1
+    'gaussian, frame 2, eta/s=20/4pi, ep=(A=0.4,d=3.2), hx = 0.2,0.1,0.05, ht = 0.5*hx, minmod3': ["bdnk_gaussian_(epL,epR)=(0.4,3.2)_(vL,vR)=(0.0,0.0)_a1=12.5_a2=8.33_etaovs=1.592_Delta=5.0_hx=0.2_ht=0.1_Ncells=751_grid=[-75.0,75.0]_c+=0.85_kt-minmod-tvdrk2",
+                                                                                                   "bdnk_gaussian_(epL,epR)=(0.4,3.2)_(vL,vR)=(0.0,0.0)_a1=12.5_a2=8.33_etaovs=1.592_Delta=5.0_hx=0.1_ht=0.05_Ncells=1501_grid=[-75.0,75.0]_c+=0.85_kt-minmod-tvdrk2",
+                                                                                                   "bdnk_gaussian_(epL,epR)=(0.4,3.2)_(vL,vR)=(0.0,0.0)_a1=12.5_a2=8.33_etaovs=1.592_Delta=5.0_hx=0.05_ht=0.025_Ncells=3001_grid=[-75.0,75.0]_c+=0.85_kt-minmod-tvdrk2"
+                                                                                                   ],
+
+
+    # coarse
+    # d= 64 * 0.1
+    'gaussian, frame 2, eta/s=20/4pi, ep=(A=0.4,d=6.4), hx = 0.2,0.1,0.05, ht = 0.5*hx, minmod3': ["bdnk_gaussian_(epL,epR)=(0.4,6.4)_(vL,vR)=(0.0,0.0)_a1=12.5_a2=8.33_etaovs=1.592_Delta=5.0_hx=0.2_ht=0.1_Ncells=751_grid=[-75.0,75.0]_c+=0.85_kt-minmod-tvdrk2",
+                                                                                                   "bdnk_gaussian_(epL,epR)=(0.4,6.4)_(vL,vR)=(0.0,0.0)_a1=12.5_a2=8.33_etaovs=1.592_Delta=5.0_hx=0.1_ht=0.05_Ncells=1501_grid=[-75.0,75.0]_c+=0.85_kt-minmod-tvdrk2",
+                                                                                                   "bdnk_gaussian_(epL,epR)=(0.4,6.4)_(vL,vR)=(0.0,0.0)_a1=12.5_a2=8.33_etaovs=1.592_Delta=5.0_hx=0.05_ht=0.025_Ncells=3001_grid=[-75.0,75.0]_c+=0.85_kt-minmod-tvdrk2"
+                                                                                                   ],
+
+    # d= 32 * 0.1
+    'gaussian, frame 2, eta/s=20/4pi, ep=(A=0.4,d=32*0.1), hx = 0.05/4,0.05/8,0.05/16, ht = 0.5*hx, minmod3': ["bdnk_gaussian_(epL,epR)=(0.4,3.2)_(vL,vR)=(0.0,0.0)_a1=12.5_a2=8.33_etaovs=1.592_Delta=5.0_hx=0.0125_ht=0.006_Ncells=12001_grid=[-75.0,75.0]_c+=0.85_kt-minmod-tvdrk2",
+                                                                                                               "bdnk_gaussian_(epL,epR)=(0.4,3.2)_(vL,vR)=(0.0,0.0)_a1=12.5_a2=8.33_etaovs=1.592_Delta=5.0_hx=0.00625_ht=0.003_Ncells=24001_grid=[-75.0,75.0]_c+=0.85_kt-minmod-tvdrk2",
+                                                                                                               "bdnk_gaussian_(epL,epR)=(0.4,3.2)_(vL,vR)=(0.0,0.0)_a1=12.5_a2=8.33_etaovs=1.592_Delta=5.0_hx=0.003125_ht=0.002_Ncells=48001_grid=[-75.0,75.0]_c+=0.85_kt-minmod-tvdrk2"
+                                                                                                               ],
+
     # d= 64 * 0.1
     'gaussian, frame 2, eta/s=20/4pi, ep=(A=0.4,d=64*0.1), hx = 0.05/4,0.05/8,0.05/16, ht = 0.5*hx, minmod3': ["bdnk_gaussian_(epL,epR)=(0.4,6.4)_(vL,vR)=(0.0,0.0)_a1=12.5_a2=8.33_etaovs=1.592_Delta=5.0_hx=0.0125_ht=0.006_Ncells=12001_grid=[-75.0,75.0]_c+=0.85_kt-minmod-tvdrk2",
                                                                                                                "bdnk_gaussian_(epL,epR)=(0.4,6.4)_(vL,vR)=(0.0,0.0)_a1=12.5_a2=8.33_etaovs=1.592_Delta=5.0_hx=0.00625_ht=0.003_Ncells=24001_grid=[-75.0,75.0]_c+=0.85_kt-minmod-tvdrk2",
@@ -489,13 +540,24 @@ runs = ['gaussian', 'ep-shock', 'v-gaussian']
 run = input("ep shock or gaussian or v shock or gaussian w momentum? type g, e, vg, v: ")
 
 if run == 'g':
-    df_type = 'gaussian, frame 2, eta/s=20/4pi, ep=(A=0.4,d=64*0.1), hx = 0.05/4,0.05/8,0.05/16, ht = 0.5*hx, minmod3'
+    # df_type ='gaussian, frame 2, eta/s=20/4pi, ep=(A=0.4,d=0.1), hx = 0.2,0.1,0.05, ht = 0.5*hx, minmod3'
+    # df_type = 'gaussian, frame 2, eta/s=20/4pi, ep=(A=0.4,d=3.2), hx = 0.2,0.1,0.05, ht = 0.5*hx, minmod3'
+    # df_type ='gaussian, frame 2, eta/s=20/4pi, ep=(A=0.4,d=6.4), hx = 0.2,0.1,0.05, ht = 0.5*hx, minmod3'
+
     # df_type = 'gaussian, frame 2, eta/s=20/4pi, ep=(A=0.4,d=0.1), hx = 0.05/4,0.05/8,0.05/16, ht = 0.5*hx, minmod3'
+    df_type = 'gaussian, frame 2, eta/s=20/4pi, ep=(A=0.4,d=32*0.1), hx = 0.05/4,0.05/8,0.05/16, ht = 0.5*hx, minmod3'
+    # df_type = 'gaussian, frame 2, eta/s=20/4pi, ep=(A=0.4,d=64*0.1), hx = 0.05/4,0.05/8,0.05/16, ht = 0.5*hx, minmod3'
+    
     # df_type = 'gaussian, frame 2, eta/s=3/4pi, ep=(A=0.4,d=0.1), hx = 0.05/4,0.05/8,0.05/16, ht = 0.5*hx, minmod3'
     # df_type = 'gaussian, frame 2, eta/s=3/4pi, ep=(A=0.4,d=4*0.1), hx = 0.05/4,0.05/8,0.05/16, ht = 0.5*hx, minmod3'
-    # df_type = 'gaussian, frame 2, eta/s=1/4pi, ep=(A=0.4,d=0.1), hx = 0.05/4,0.05/8,0.05/16, ht = 0.5*hx, minmod3'
+    # df_type = 'gaussian, frame 2, eta/s=3/4pi, ep=(A=0.4,d=32*0.1), hx = 0.05/4,0.05/8,0.05/16, ht = 0.5*hx, minmod3'
+
     # df_type = 'gaussian, frame 1, eta/s=1/4pi, ep=(A=0.4,d=0.1), hx = 0.05/4,0.05/8,0.05/16, ht = 0.5*hx, minmod3'
+    # df_type = 'gaussian, frame 2, eta/s=1/4pi, ep=(A=0.4,d=0.1), hx = 0.05/4,0.05/8,0.05/16, ht = 0.5*hx, minmod3'
     # df_type = 'gaussian, frame 3, eta/s=1/4pi, ep=(A=0.4,d=0.1), hx = 0.05/4,0.05/8,0.05/16, ht = 0.5*hx, minmod3'
+    # df_type = 'gaussian, frame 2, eta/s=1/4pi, ep=(A=0.4,d=32*0.1), hx = 0.05/4,0.05/8,0.05/16, ht = 0.5*hx, minmod3'
+    # df_type = 'gaussian, frame 1, eta/s=1/4pi, ep=(A=0.4,d=0.1), hx = 0.05, 0.05/2, 0.05/4, ht = 0.5*hx, minmod3'
+
     sim_c = df.loc[0, df_type]
     sim_m = df.loc[1, df_type]
     sim_f = df.loc[2, df_type]
@@ -503,9 +565,9 @@ if run == 'g':
 
 if run == 'e':
     # df_type = "ep-shock, frame 1, eta/s=1/4pi, ep=(1.3,0.3), hx = 0.05/4,0.05/8,0.05/16, ht = 0.5hx, minmod3, Delta=1.0"
-    # df_type = "ep-shock, frame 2, eta/s=1/4pi, ep=(1.3,0.3), hx = 0.05/4,0.05/8,0.05/16, ht = 0.5hx, minmod3, Delta=1.0"
+    df_type = "ep-shock, frame 2, eta/s=1/4pi, ep=(1.3,0.3), hx = 0.05/4,0.05/8,0.05/16, ht = 0.5hx, minmod3, Delta=1.0"
     # df_type = "ep-shock, frame 3, eta/s=1/4pi, ep=(1.3,0.3), hx = 0.05/4,0.05/8,0.05/16, ht = 0.5hx, minmod3, Delta=1.0"
-    df_type = "ep-shock, euler, ep=(1.3,0.3), hx = 0.05,0.025,0.0125, ht = 0.5hx, minmod3, Delta=1.0"
+    # df_type = "ep-shock, euler, ep=(1.3,0.3), hx = 0.05,0.025,0.0125, ht = 0.5hx, minmod3, Delta=1.0"
     sim_c = df.loc[0, df_type]
     sim_m = df.loc[1, df_type]
     sim_f = df.loc[2, df_type]

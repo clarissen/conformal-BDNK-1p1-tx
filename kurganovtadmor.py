@@ -46,11 +46,11 @@ def phi_minmod3(r, theta):
 
 @njit
 def phi_superbee(r):
-    b = 1.5 # [1,2]
+    b = 1.0 # [1,2]
     # Superbee: max(0, min(2r,1), min(r,2))
     return np.maximum(0.0, np.minimum(b*r, 1.0), np.minimum(r, b))
 
-@njit
+# @njit
 def phi_van_leer(r):
     # van Leer: (r+|r|)/(1+|r|)
     return (r + abs(r)) / (1.0 + abs(r))
